@@ -153,7 +153,7 @@ class GithubClientProvider extends Application
     private function getResult($value)
     {
         return [
-            'repository' => $value['repository']['html_url'],
+            'repository' => $value['html_url'],
             'commit' => $value['url'],
             'date' => $this->getDate($value)
         ];
