@@ -12,8 +12,8 @@ load_dotenv();
 $app = new Silly\Edition\Pimple\Application();
 
 
-$app->getContainer()[\Alnutile\Skeleton\Application::class] = function() use ($app) {
-    $core = new \Alnutile\Skeleton\Application($app);
+$app->getContainer()[\Alnutile\Codereview\Application::class] = function() use ($app) {
+    $core = new \Alnutile\Codereview\Application($app);
     return $core;
 };
 
@@ -21,15 +21,15 @@ $app->getContainer()['config'] = function() use ($app) {
     return config();
 };
 
-$app->getContainer()[\Alnutile\Skeleton\SkeletonClass::class] = function() use ($app) {
-    $skel = new \Alnutile\Skeleton\SkeletonClass();
+$app->getContainer()[\Alnutile\Codereview\SkeletonClass::class] = function() use ($app) {
+    $skel = new \Alnutile\Codereview\SkeletonClass();
     return $skel;
 };
 
-$app->getContainer()['skel'] = $app->getContainer()[\Alnutile\Skeleton\SkeletonClass::class];
+$app->getContainer()['skel'] = $app->getContainer()[\Alnutile\Codereview\SkeletonClass::class];
 
 
-$app->getContainer()['app'] = $app->getContainer()[\Alnutile\Skeleton\Application::class];
+$app->getContainer()['app'] = $app->getContainer()[\Alnutile\Codereview\Application::class];
 
 $app->getContainer()['output'] = function() use ($app) {
 

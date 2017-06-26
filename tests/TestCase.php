@@ -1,6 +1,6 @@
 <?php
 
-namespace Alnutile\Skeleton;
+namespace Alnutile\Codereview;
 
 use Mockery;
 

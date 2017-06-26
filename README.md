@@ -1,4 +1,4 @@
-# :package_name
+# codereview
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -7,7 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:vendor``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
+**Note:** Replace ```Al``` ```alnutile``` ```https://github.com/alnutile``` ```alfrednutile@gmail.com``` ```alnutile``` ```codereview``` ```CLI to help with the many steps``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
 PSRs you support to avoid any confusion with users and contributors.
@@ -38,7 +38,7 @@ vendor/
 First install `cgr` as seen [here](https://github.com/consolidation/cgr)
 Then run 
 ``` bash
-$ cgr global require :vendor/:package_name:dev-master
+$ cgr global require alnutile/codereview:dev-master
 ```
 
 So the article [here](https://medium.com/@alnutile/php-cli-skeleton-c054eedde48f) for more details
@@ -51,7 +51,7 @@ This is how a user can install this for a reliable global install:
 ## Usage
 
 ``` php
-$skeleton = new Alnutile\Skeleton();
+$skeleton = new Alnutile\Codereview();
 echo $skeleton->echoPhrase('League!', 'Hello');
 ```
 
@@ -76,28 +76,28 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+If you discover any security related issues, please email alfrednutile@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [:author_name][link-author]
+- [Al][link-author]
 - [All Contributors][link-contributors]
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/:vendor/:package_name.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/alnutile/codereview.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/:vendor/:package_name/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/:vendor/:package_name.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/:vendor/:package_name.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/alnutile/codereview/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/alnutile/codereview.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/alnutile/codereview.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/alnutile/codereview.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/:vendor/:package_name
-[link-travis]: https://travis-ci.org/:vendor/:package_name
-[link-scrutinizer]: https://scrutinizer-ci.com/g/:vendor/:package_name/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/:vendor/:package_name
-[link-downloads]: https://packagist.org/packages/:vendor/:package_name
-[link-author]: https://github.com/:author_username
+[link-packagist]: https://packagist.org/packages/alnutile/codereview
+[link-travis]: https://travis-ci.org/alnutile/codereview
+[link-scrutinizer]: https://scrutinizer-ci.com/g/alnutile/codereview/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/alnutile/codereview
+[link-downloads]: https://packagist.org/packages/alnutile/codereview
+[link-author]: https://github.com/alnutile
 [link-contributors]: ../../contributors

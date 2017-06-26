@@ -1,18 +1,18 @@
 {
-    "name": ":vendor/:package_name",
+    "name": "alnutile/codereview",
     "type": "library",
-    "description": ":package_description",
+    "description": "CLI to help with the many steps",
     "keywords": [
-        ":vendor",
-        ":package_name"
+        "alnutile",
+        "codereview"
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/alnutile/codereview",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Al",
+            "email": "alfrednutile@gmail.com",
+            "homepage": "https://github.com/alnutile",
             "role": "Developer"
         }
     ],
@@ -33,7 +33,7 @@
     },
     "autoload": {
         "psr-4": {
-            ":vendor\\:package_name\\": "src"
+            "Alnutile\\Codereview\\": "src"
         },
         "files": [
             "bootstrap/helpers.php"
@@ -41,7 +41,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            ":vendor\\:package_name\\": "tests"
+            "Alnutile\\Codereview\\": "tests"
         }
     },
     "scripts": {
@@ -59,6 +59,6 @@
         "bin-dir": "bin"
     },
     "bin": [
-        ":package_name"
+        "codereview"
     ]
 }

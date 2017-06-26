@@ -1,6 +1,6 @@
 <?php
 
-namespace Alnutile\Skeleton;
+namespace Alnutile\Codereview;
 
 class SkeletonClassTest extends TestCase
 {
