@@ -39,7 +39,7 @@ class GithubHistoryTest extends TestCase
         $this->assertContains('2017/06/23 13:37', $results[0]['date']);
         $this->assertContains('https://github.com/alnutile/foo', $results[0]['repository']);
         $this->assertContains(
-            'https://api.github.com/repos/alnutile/foo/commits/200bf818b04b7f8aea2f2b224e3faf40882e9442',
+            'https://github.com/alnutile/foo/commit/200bf818b04b7f8aea2f2b224e3faf40882e9442',
             $results[0]['commit']
         );
     }
