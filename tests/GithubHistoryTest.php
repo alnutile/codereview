@@ -32,7 +32,6 @@ class GithubHistoryTest extends TestCase
 
         $client = new GithubClientProvider($this->app->getContainer()['app'], $mocked);
 
-
         $results = $client->getLatestCommits(['committer' => 'alnutile', 'org' => 'alfred-nutile-inc']);
 
         $this->assertCount(1, $results);
@@ -67,7 +66,7 @@ class GithubHistoryTest extends TestCase
 
         $client->setQueryString($query);
 
-        $this->assertEquals("q=sort:committer-date-desc+committer:bar+org:foo&access_token:foo", $client->getQueryString());
+        $this->assertEquals("q=committer:bar+sort:committer-date-desc+org:foo&access_token=foo", $client->getQueryString());
     }
 
     /**

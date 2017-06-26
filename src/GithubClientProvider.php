@@ -121,11 +121,11 @@ class GithubClientProvider extends Application
      */
     public function setQueryString($query = [])
     {
-        $items[] = 'sort:committer-date-desc';
-
         if(isset($query['committer'])) {
             $items[] = sprintf("committer:%s", $query['committer']);
         }
+
+        $items[] = 'sort:committer-date-desc';
 
         if(isset($query['org'])) {
             $items[] = sprintf("org:%s", $query['org']);
@@ -133,7 +133,7 @@ class GithubClientProvider extends Application
 
         $query = sprintf("q=%s", implode("+", $items));
 
-        $query = sprintf('%s&access_token:%s', $query, $this->getGithubToken());
+        $query = sprintf('%s&access_token=%s', $query, $this->getGithubToken());
 
         $this->query_string = $query;
     }
