@@ -3,7 +3,6 @@
 
 namespace Alnutile\Codereview;
 
-
 /**
  * @codeCoverageIgnore
  */

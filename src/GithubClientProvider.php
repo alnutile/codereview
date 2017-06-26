@@ -3,10 +3,8 @@
 
 namespace Alnutile\Codereview;
 
-
 use Carbon\Carbon;
 use GuzzleHttp\Client;
-
 
 class GithubClientProvider extends Application
 {
@@ -35,7 +33,8 @@ class GithubClientProvider extends Application
     }
 
 
-    public function getLatestCommits($query = []) {
+    public function getLatestCommits($query = [])
+    {
 
         $this->setQueryString($query);
 
@@ -48,7 +47,6 @@ class GithubClientProvider extends Application
         $results = $this->getClient()->get($url);
 
         return $this->returnResults($results);
-
     }
 
     /**
@@ -57,7 +55,7 @@ class GithubClientProvider extends Application
      */
     public function getGithubToken()
     {
-        if(!$this->github_token) {
+        if (!$this->github_token) {
             $this->setGithubToken();
         }
         return $this->github_token;
@@ -68,8 +66,7 @@ class GithubClientProvider extends Application
      */
     public function setGithubToken($github_token = null)
     {
-        if(!$github_token) {
-
+        if (!$github_token) {
             $github_token = $this->app->getConfigValueByKey('github_token');
         }
         $this->github_token = $github_token;
@@ -100,7 +97,7 @@ class GithubClientProvider extends Application
      */
     private function returnResults($results)
     {
-        if($this->isGuzzleResponse($results)) {
+        if ($this->isGuzzleResponse($results)) {
             $results = json_decode($results->getBody(), true);
         }
 
@@ -121,13 +118,13 @@ class GithubClientProvider extends Application
      */
     public function setQueryString($query = [])
     {
-        if(isset($query['committer'])) {
+        if (isset($query['committer'])) {
             $items[] = sprintf("committer:%s", $query['committer']);
         }
 
         $items[] = 'sort:committer-date-desc';
 
-        if(isset($query['org'])) {
+        if (isset($query['org'])) {
             $items[] = sprintf("org:%s", $query['org']);
         }
 
@@ -141,7 +138,7 @@ class GithubClientProvider extends Application
     private function transformResults($results = [])
     {
         $items = [];
-        foreach($results['items'] as $key => $value) {
+        foreach ($results['items'] as $key => $value) {
             $items[] = $this->getResult($value);
         }
 
@@ -181,6 +178,4 @@ class GithubClientProvider extends Application
     {
         return Carbon::parse($value['commit']['committer']['date'])->format('Y/m/d H:i');
     }
-
-
 }

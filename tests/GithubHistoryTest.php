@@ -3,7 +3,6 @@
 
 namespace Alnutile\Codereview;
 
-
 use GuzzleHttp\Client;
 use Mockery;
 use Mockery\Mock;
@@ -20,7 +19,8 @@ class GithubHistoryTest extends TestCase
      * @coversDefaultClass getGithubToken
      * @coversDefaultClass transformResults
      */
-    public function testGetHistoryForUser() {
+    public function testGetHistoryForUser()
+    {
 
 
         //setup the config file
@@ -42,13 +42,13 @@ class GithubHistoryTest extends TestCase
             'https://api.github.com/repos/alnutile/foo/commits/200bf818b04b7f8aea2f2b224e3faf40882e9442',
             $results[0]['commit']
         );
-
     }
 
     /**
      * @coversDefaultClass setQueryString
      */
-    public function testOutputOfQueryString() {
+    public function testOutputOfQueryString()
+    {
 
         $config = [
             'github_token' => 'foo'
@@ -66,13 +66,17 @@ class GithubHistoryTest extends TestCase
 
         $client->setQueryString($query);
 
-        $this->assertEquals("q=committer:bar+sort:committer-date-desc+org:foo&access_token=foo", $client->getQueryString());
+        $this->assertEquals(
+            "q=committer:bar+sort:committer-date-desc+org:foo&access_token=foo",
+            $client->getQueryString()
+        );
     }
 
     /**
      * @coversDefaultClass setGithubToken
      */
-    public function testSetGithubToken() {
+    public function testSetGithubToken()
+    {
         $config = [
             'github_token' => 'foo'
         ];
@@ -93,7 +97,7 @@ class GithubHistoryTest extends TestCase
     }
 
 
-    public function testMultipleOrgs() {
-
+    public function testMultipleOrgs()
+    {
     }
 }
