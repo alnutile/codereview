@@ -4,6 +4,7 @@
 namespace Alnutile\Codereview;
 
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 
 
@@ -156,7 +157,8 @@ class GithubClientProvider extends Application
     {
         return [
             'repository' => $value['repository']['html_url'],
-            'commit' => $value['url']
+            'commit' => $value['url'],
+            'date' => $this->getDate($value)
         ];
     }
 
@@ -168,6 +170,16 @@ class GithubClientProvider extends Application
     private function isGuzzleResponse($results)
     {
         return is_object($results) && get_class($results) == 'GuzzleHttp\Psr7\Response';
+    }
+
+    /**
+     * @param $value
+     * @return string
+     * @codeCoverageIgnore
+     */
+    private function getDate($value)
+    {
+        return Carbon::parse($value['commit']['committer']['date'])->format('Y/m/d H:i');
     }
 
 

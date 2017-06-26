@@ -49,6 +49,7 @@ orgs:
   - org_2
 ```
 
+
 ### github_token (required)
 this will help query github for information
 
@@ -56,10 +57,20 @@ this will help query github for information
 makes it easier for you to limit results
 
 
-``` php
-$skeleton = new Alnutile\Codereview();
-echo $skeleton->echoPhrase('League!', 'Hello');
+### gethistory 
+
+This will return the history for the user
+
 ```
+codereview  gethistory --committer=alnutile
+```
+
+or soon
+
+```
+codereview  gethistory --committer=alnutile --org=alfred-nutile-inc
+```
+
 
 ## Change log
 

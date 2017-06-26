@@ -9,19 +9,34 @@ require __DIR__.'/bootstrap/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
-$app->command('hello [--name=] message', function (
+$app->command('gethistory [--committer=] [--org=]', function (
     OutputInterface $output,
-    \Alnutile\Codereview\SkeletonClass $skel,
-    $name, $message) use ($app) {
+    \Alnutile\Codereview\GithubClientProvider $client,
+    $committer, $org) use ($app) {
 
     $output->writeln("\nRunning your command\n");
 
     try {
-        $message = $skel->echoPhrase($name, $message);
-        $output->writeln($message);
-        $output->writeln("<info>$name</info>");
-        $output->writeln("<error>$name</error>");
-        $output->writeln("<question>$name</question>\n");
+
+
+        $query = [
+            'committer' => $committer
+        ];
+
+        if($org) {
+            $query['org'] = $org;
+        }
+
+        $results = $client->getLatestCommits($query);
+
+
+        $table = new \Symfony\Component\Console\Helper\Table($output);
+        $table
+            ->setHeaders([
+                'Date', 'Repo', 'CommitURL'
+            ])->setRows($results);
+        $table->render();
+
 
     } catch (\Exception $e) {
         $output->writeln(sprintf(
@@ -31,11 +46,11 @@ $app->command('hello [--name=] message', function (
     }
 
 })->defaults([
-    'name' => "World"
-])->descriptions("Hello NAME and a message",
+    'org' => false
+])
+    ->descriptions("Show commit history of committer",
     [
-        '--name' => "Who is the message to",
-        "message" => "What do you want to say?"
+        '--committer' => "Github Name"
     ]
 );
 
