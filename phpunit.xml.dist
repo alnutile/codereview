@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="alnutile Test Suite">
+        <testsuite name="Default">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

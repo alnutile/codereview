@@ -18,18 +18,36 @@ $app->getContainer()[\Alnutile\Codereview\Application::class] = function() use (
 };
 
 $app->getContainer()['config'] = function() use ($app) {
+
+    $path = getenv("HOME") . "/.codereview";
+
+    if(file_exists($path . "/config.yml")) {
+        return config($path);
+    }
+
     return config();
 };
 
-$app->getContainer()[\Alnutile\Codereview\SkeletonClass::class] = function() use ($app) {
-    $skel = new \Alnutile\Codereview\SkeletonClass();
+$app->getContainer()[\Alnutile\Codereview\GithubClientProvider::class] = function() use ($app) {
+    $config = [
+        'headers' => [
+            'Accept' => "application/vnd.github.cloak-preview+json",
+            'Content-Type' => "application/json",
+            'X-GitHub-Media-Type' => "github.v3"
+        ]
+    ];
+    $client = new \GuzzleHttp\Client($config);
+
+    $skel = new \Alnutile\Codereview\GithubClientProvider($app->getContainer()['app'], $client);
+
+
     return $skel;
 };
 
-$app->getContainer()['skel'] = $app->getContainer()[\Alnutile\Codereview\SkeletonClass::class];
-
 
 $app->getContainer()['app'] = $app->getContainer()[\Alnutile\Codereview\Application::class];
+
+$app->getContainer()['github_client'] = $app->getContainer()[\Alnutile\Codereview\GithubClientProvider::class];
 
 $app->getContainer()['output'] = function() use ($app) {
 

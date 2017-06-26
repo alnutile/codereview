@@ -7,18 +7,6 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```Al``` ```alnutile``` ```https://github.com/alnutile``` ```alfrednutile@gmail.com``` ```alnutile``` ```codereview``` ```CLI to help with the many steps``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-
-This will create a CLI foundation using [Silly](https://github.com/mnapoli/silly)
-
-It is based off the [thephpleague/skeleton](https://github.com/thephpleague/skeleton) library
-
->THIS IS 99% BASED ON [https://github.com/thephpleague/skeleton](https://github.com/thephpleague/skeleton)
->TOTALLY APPRECIATE THEIR WORK
 
 ## Structure
 
@@ -49,6 +37,24 @@ This is how a user can install this for a reliable global install:
 
 
 ## Usage
+
+Make a file in your home directory "~/.codereview/config.yml"
+
+in that file build up some keys and values
+
+```
+github_token: "YOUR_GITHUB_TOKEN"
+orgs: 
+  - org_1
+  - org_2
+```
+
+### github_token (required)
+this will help query github for information
+
+### orgs (optional)
+makes it easier for you to limit results
+
 
 ``` php
 $skeleton = new Alnutile\Codereview();

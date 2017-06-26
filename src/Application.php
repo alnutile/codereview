@@ -3,6 +3,10 @@
 
 namespace Alnutile\Codereview;
 
+
+/**
+ * @codeCoverageIgnore
+ */
 class Application
 {
 
